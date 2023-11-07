@@ -1,0 +1,41 @@
+<app-header  title="Iniciar Sesión"></app-header>
+
+
+<ion-content [fullscreen]="true" class="form-container">
+        <form class="auth-form" [formGroup]="formulario" (keypress.enter)="submit()" (ngSubmit)="submit()">
+            <app-input-personalizado 
+            autocomplete="email"
+            icon="mail-outline"
+            [control]="formulario.controls.email"
+            type="email"
+            label="Correo"></app-input-personalizado>
+
+            <div class="validators" *ngIf="formulario.controls.email.errors && formulario.controls.email.touched"> 
+                
+                <div  *ngIf="formulario.controls.email.errors?.['required']"><p class="error-correo">El correo es requerido </p></div>
+                <div  *ngIf="formulario.controls.email.errors?.['email']"><p class="error-correo">Ingresa correo válido</p></div>
+ 
+             </div>
+            <app-input-personalizado
+            autocomplete="password"
+            icon="lock-closed-outline"
+            [control]="formulario.controls.password"
+            type="password"
+            label="Contraseña"></app-input-personalizado>
+            
+            <div class="validators" *ngIf="formulario.controls.password.errors && formulario.controls.password.touched"> 
+                
+                <div  *ngIf="formulario.controls.password.errors?.['required']"><p class="error-correo">La contraseña es requerida </p></div>
+                <div  *ngIf="formulario.controls.password.errors?.['password']"><p class="error-correo">Contraseña requerida</p></div>
+ 
+             </div>
+
+             <ion-button type="submit" color="danger" expand="full">Ingresar</ion-button>
+                <ion-text color="primary" class="ion-text-center" (click)="registro()"  >
+                    <p>Crear cuenta</p>
+                </ion-text>
+                <ion-text color="primary"(click)="recuperar()" class="ion-text-center">
+                    <p>¿Olvidaste tu contraseña?</p>
+                </ion-text>
+            </form>   
+</ion-content>

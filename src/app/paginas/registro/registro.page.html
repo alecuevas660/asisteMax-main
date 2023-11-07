@@ -1,0 +1,59 @@
+<app-header backButton="/auth" title="Registrar"></app-header>
+
+
+<ion-content [fullscreen]="true" class="form-container">
+        <app-logo></app-logo>
+        <form class="auth-form" [formGroup]="formulario" (keypress.enter)="submit()" (ngSubmit)="submit()">
+            
+
+          <!--------EMAIL--------->
+          <app-input-personalizado 
+            autocomplete="email"
+            icon="mail-outline"
+            [control]="formulario.controls.email"
+            type="email"
+            label="Correo"></app-input-personalizado>
+
+            <div class="validators" *ngIf="formulario.controls.email.errors && formulario.controls.email.touched"> 
+                
+                <div  *ngIf="formulario.controls.email.errors?.['required']"><p class="error-correo">El correo es requerido </p></div>
+                <div  *ngIf="formulario.controls.email.errors?.['email']"><p class="error-correo">Ingresa correo válido</p></div>
+
+             </div>
+
+
+
+             <!--------Usuario--------->
+             <app-input-personalizado 
+             autocomplete="name"
+             icon="people"
+             [control]="formulario.controls.name"
+             type="text"
+             label="Usuario"></app-input-personalizado>
+             <div class="validators" *ngIf="formulario.controls.email.errors && formulario.controls.email.touched"> 
+                
+              <div  *ngIf="formulario.controls.email.errors?.['required']"><p class="error-correo">El Usuario es requerido </p></div>
+              <div  *ngIf="formulario.controls.email.errors?.['name']"><p class="error-correo">Ingresa usuario valido</p></div>
+
+           </div>
+
+            <!--------contraseña--------->
+            <app-input-personalizado
+            autocomplete="password"
+            icon="lock-closed-outline"
+            [control]="formulario.controls.password"
+            type="password"
+            label="Contraseña"></app-input-personalizado>
+            
+            <div class="validators" *ngIf="formulario.controls.password.errors && formulario.controls.password.touched"> 
+                
+                <div  *ngIf="formulario.controls.password.errors?.['required']"><p class="error-correo">La contraseña es requerida </p></div>
+                <div  *ngIf="formulario.controls.password.errors?.['password']"><p class="error-correo">Contraseña requerida</p></div>
+ 
+             </div>
+
+             <ion-button  type="submit" color="danger" expand="full">Registrar</ion-button>
+                
+            </form>   
+            <app-duoc></app-duoc>
+</ion-content>
