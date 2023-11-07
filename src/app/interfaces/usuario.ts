@@ -12,3 +12,5 @@ export interface RegistrosFec {
     nombreCurso: string;
     fecha: Date[];
 }
+
+
