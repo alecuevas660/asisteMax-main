@@ -98,7 +98,7 @@ export class AuthPage implements OnInit {
 
       this.firebase.getDocument(path).then((user: User)=>{
       this.utilsvc.saveInLocalStorage('user',user)
-      this.utilsvc.routerLink('/home')
+      this.utilsvc.routerLink('/menu')
       this.formulario.reset()
     
       this.utilsvc.Toast({
